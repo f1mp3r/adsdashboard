@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Ad;
+use App\Models\AdTemplate;
+use App\Policies\AdPolicy;
+use App\Policies\AdTemplatePolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
 use Illuminate\Support\Facades\Gate;
@@ -31,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         //region Policies
         Gate::policy(Role::class, RolePolicy::class);
         Gate::policy(Permission::class, PermissionPolicy::class);
+        Gate::policy(Ad::class, AdPolicy::class);
+        Gate::policy(AdTemplate::class, AdTemplatePolicy::class);
         //endregion
     }
 }

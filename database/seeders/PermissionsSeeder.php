@@ -15,10 +15,9 @@ class PermissionsSeeder extends Seeder
     public function run(): void
     {
         //region Permissions
-        Permission::firstOrCreate(['name' => Permissions::VIEW_DASHBOARD]);
-        Permission::firstOrCreate(['name' => Permissions::MANAGE_ADS]);
-        Permission::firstOrCreate(['name' => Permissions::MANAGE_AD_TEMPLATES]);
-        Permission::firstOrCreate(['name' => Permissions::MANAGE_ROLES]);
+        foreach (Permissions::cases() as $case) {
+            Permission::firstOrCreate(['name' => $case]);
+        }
         //endregion
 
         //region Roles
@@ -39,7 +38,11 @@ class PermissionsSeeder extends Seeder
         $editor->givePermissionTo([
             Permissions::VIEW_DASHBOARD,
             Permissions::MANAGE_ADS,
+            Permissions::VIEW_ADS,
+            Permissions::CREATE_ADS,
             Permissions::MANAGE_AD_TEMPLATES,
+            Permissions::CREATE_AD_TEMPLATE_FROM_AD,
+            Permissions::LINK_AD_TO_AD_TEMPLATE,
         ]);
 
         $viewer->givePermissionTo([
