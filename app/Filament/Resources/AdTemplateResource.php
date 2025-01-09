@@ -34,6 +34,7 @@ class AdTemplateResource extends Resource
                             ->url(),
                         Forms\Components\Select::make('ad_id')
                             ->searchable()
+                            ->required()
                             ->relationship('ad', 'title'),
                         Forms\Components\Textarea::make('description')
                             ->grow()
@@ -47,14 +48,13 @@ class AdTemplateResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->description(fn (AdTemplate $record) => 'Ad: ' . $record->ad->title)
                     ->grow()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->badge(),
                 Tables\Columns\TextColumn::make('canva_url')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('ad.title')
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -24,4 +24,18 @@ class AdTemplate extends Model
     {
         return $this->belongsTo(Ad::class);
     }
+
+    /**
+     * Create an AdTemplate from the given Ad.
+     */
+    public static function createFromAd(Ad $ad): self
+    {
+        return self::create([
+            'title' => $ad->title,
+            'description' => $ad->description,
+            'status' => AdTemplateStatus::Draft,
+            'canva_url' => $ad->url,
+            'ad_id' => $ad->id,
+        ]);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Enums\AdStatus;
+use App\Filament\Resources\AdResource\Actions\CreateTemplateAction;
 use App\Filament\Resources\AdResource\Pages;
 use App\Models\Ad;
 use Filament\Forms;
@@ -63,6 +64,7 @@ class AdResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                CreateTemplateAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

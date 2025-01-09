@@ -26,4 +26,12 @@ class Ad extends Model
     {
         return $this->hasMany(AdTemplate::class);
     }
+
+    public function setStatus(AdStatus $status): static
+    {
+        $this->status = $status;
+        $this->save();
+
+        return $this;
+    }
 }
