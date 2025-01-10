@@ -31,7 +31,9 @@ class Subscription extends Model
     public function scopeActive(Builder $builder, $active = true): Builder
     {
         return $active
-            ? $builder->where(
+            ? $builder
+                ->where('start_period', '<=', now())
+                ->where(
                 fn($query) => $query
                     ->whereNull('end_period')
                     ->orWhere('end_period', '>', now())

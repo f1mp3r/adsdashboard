@@ -22,16 +22,21 @@ class UserDataWidget extends BaseWidget
     {
         return [
             Stat::make('Churn Rate', $this->getChurnRate())
-                ->description('Last 30 days'),
+                ->description(sprintf('%d subscribers 30 ago', $this->getInitialSubsciptionsCount())),
             Stat::make('Active subscriptions', Subscription::active()->count())
                 ->description(sprintf('%d churned last 30 days', $this->getChurnedCount())),
         ];
     }
 
-    private function getChurnRate(): int|string
+    private function getInitialSubsciptionsCount()
+    {
+        return Subscription::activeOn(now()->subDays(self::$daysAgo))->count();
+    }
+
+    private function getChurnRate(): string
     {
         $churned = $this->getChurnedCount();
-        $initialSubscriptionsCount = Subscription::activeOn(now()->subDays(self::$daysAgo))->count();
+        $initialSubscriptionsCount = $this->getInitialSubsciptionsCount();
         $churnRate = $initialSubscriptionsCount ? round(($churned / $initialSubscriptionsCount) * 100, 2) : 0;
 
         return Number::percentage($churnRate, 2);
