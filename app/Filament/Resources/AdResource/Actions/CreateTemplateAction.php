@@ -32,8 +32,9 @@ class CreateTemplateAction extends Action
 
             $record->setStatus(AdStatus::Completed);
 
-            Notification::make('ad_template_created')
+            Notification::make('ad_template_created_' . $adTemplate->id)
                 ->title('Ad template created')
+                ->body('For ad: ' . $record->title)
                 ->success()
                 ->actions([
                     NotificationAction::make('view')

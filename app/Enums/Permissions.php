@@ -26,4 +26,13 @@ enum Permissions: string
 
     // Permissions
     case MANAGE_PERMISSIONS = 'permissions.manage';
+
+    // Users
+    case USERS_VIEW = 'users.view';
+    case USERS_CREATE = 'users.create';
+    case USERS_UPDATE = 'users.update';
+    case USERS_DELETE = 'users.delete';
+    case USERS_RESTORE = 'users.restore';
+    case USERS_ALL = 'users.*';
 }
+
