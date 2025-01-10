@@ -30,8 +30,8 @@ class PermissionsSeeder extends Seeder
         //region Assign Permissions
         $admin->givePermissionTo([
             Permissions::VIEW_DASHBOARD,
-            Permissions::MANAGE_ADS,
-            Permissions::MANAGE_AD_TEMPLATES,
+            Permissions::ADS_ALL,
+            Permissions::AD_TEMPLATES_ALL,
             Permissions::MANAGE_ROLES,
         ]);
 

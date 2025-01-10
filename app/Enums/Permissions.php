@@ -5,28 +5,24 @@ namespace App\Enums;
 enum Permissions: string
 {
     // Dashboard
-    case VIEW_DASHBOARD = 'view dashboard';
+    case VIEW_DASHBOARD = 'dashboard.view';
 
     // Ads
-    case MANAGE_ADS = 'manage ads';
-    case VIEW_ADS = 'view ads';
-    case CREATE_ADS = 'create ads';
+    case ADS_ALL = 'ads.*';
+    case MANAGE_ADS = 'ads.manage';
+    case VIEW_ADS = 'ads.view';
+    case CREATE_ADS = 'ads.create';
 
     // Ad Templates
-    case MANAGE_AD_TEMPLATES = 'manage ad templates';
-    case CREATE_AD_TEMPLATE = 'create ad template';
-    case CREATE_AD_TEMPLATE_FROM_AD = 'create ad template from ad';
-    case LINK_AD_TO_AD_TEMPLATE = 'link ad to ad template';
+    case AD_TEMPLATES_ALL = 'ad-templates.*';
+    case MANAGE_AD_TEMPLATES = 'ad-templates.manage';
+    case CREATE_AD_TEMPLATE = 'ad-templates.create';
+    case CREATE_AD_TEMPLATE_FROM_AD = 'ad-templates.create-from-ad';
+    case LINK_AD_TO_AD_TEMPLATE = 'ad-templates.link-to-ad';
 
     // Roles
-    case MANAGE_ROLES = 'manage roles';
+    case MANAGE_ROLES = 'roles.manage';
 
     // Permissions
-    case MANAGE_PERMISSIONS = 'manage permissions';
-
-    // Users
-    case MANAGE_USERS = 'manage users';
-
-    // Settings
-    case MANAGE_SETTINGS = 'manage settings';
+    case MANAGE_PERMISSIONS = 'permissions.manage';
 }
