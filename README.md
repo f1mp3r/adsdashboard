@@ -23,3 +23,10 @@ All users' passwords are set to `password`.
 | Editor   | editor@test.com | password |
 | Admin    | admin@test.com | password |
 | Super Admin | superadmin@test.com | password |
+
+---
+
+### Additional things done:
+
+- added notification when creating a template from an ad
+- added new subscriptions widget

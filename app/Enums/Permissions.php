@@ -22,6 +22,7 @@ enum Permissions: string
 
     // Roles
     case MANAGE_ROLES = 'roles.manage';
+    case ROLES_ALL = 'roles.*';
 
     // Permissions
     case MANAGE_PERMISSIONS = 'permissions.manage';

@@ -32,7 +32,7 @@ class PermissionsSeeder extends Seeder
             Permissions::VIEW_DASHBOARD,
             Permissions::ADS_ALL,
             Permissions::AD_TEMPLATES_ALL,
-            Permissions::MANAGE_ROLES,
+            Permissions::ROLES_ALL,
         ]);
 
         $editor->givePermissionTo([
